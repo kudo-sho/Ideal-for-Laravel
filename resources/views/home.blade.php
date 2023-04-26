@@ -8,6 +8,10 @@
     <a href="home.jsp">
     <div class="toplink">IDEALLE</div>
     </a>
-<p>こんにちは!</p>
+    <div>
+    <h1 class="title">■ Restaurante IDEALLE ■</h1>
+    <div class="site-logo">
+    <img src="{{asset('storage/02.jpg')}}">
+    </div>
 </body>
 </html>
