@@ -40,7 +40,7 @@
             <a href="contact"><div class="button">お問い合わせ</div></a><br />
             <br/><br/>
             <hr />
-            <a href="./adminLogin.jsp"><h5>管理者ログイン</h5></a>
+            <a href="adminLogin"><h5>管理者ログイン</h5></a>
 
     </div>
     <div class="site-footer">

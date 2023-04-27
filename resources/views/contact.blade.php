@@ -22,6 +22,7 @@
         <table align="center" border="1" style="width:50%;">
 
             <form id="contact" name="contact" action="contactCompletion" method="post">
+                @csrf
                 <tr>
                     <th>氏名</th>
                     <td><input type="text" name="name" size="50%" /></td>

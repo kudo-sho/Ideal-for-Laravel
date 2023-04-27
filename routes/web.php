@@ -28,3 +28,7 @@ Route::get('/contact', function () {
 Route::post('/contactCompletion', function () {
     return view('contactCompletion');
 });
+
+Route::get('/adminLogin', function () {
+    return view('adminLogin');
+});
