@@ -59,14 +59,13 @@ class Admin extends Model
             AND password = :pass",
             ['name'=>$admName,'pass'=>$password]
         );
-
-        //問い合わせた管理者情報をadminオブジェクトにセット
-        $a->setAdmId($results[0]->adm_id);
-        $a->setAdmName($results[0]->adm_name);
-        $a->setPassword($results[0]->password);
-        $a->setExp($results[0]->exp);
-
-        if($a->getAdmName() == null){
+        if($results != null){
+            //問い合わせた管理者情報をadminオブジェクトにセット
+            $a->setAdmId($results[0]->adm_id);
+            $a->setAdmName($results[0]->adm_name);
+            $a->setPassword($results[0]->password);
+            $a->setExp($results[0]->exp);
+        }else{
             $a = null;
         }
         return $a;
@@ -103,4 +102,31 @@ class Admin extends Model
 
         return $adm;
     }
+
+    //管理者情報変更
+    public static function updateAdm(Admin $adm){
+        //管理者情報をadminsテーブルにupdate
+        $query = DB::update(
+            "UPDATE admins SET
+            adm_name = :name,password = :password,exp = :exp
+            WHERE adm_id = :id",[
+                'id'=>$adm->getAdmId(),
+                'name'=>$adm->getAdmName(),
+                'password'=>$adm->getPassword(),
+                'exp'=>$adm->getExp()
+                ]
+        );
+        
+        return $adm;
+    }
+
+    //管理者情報削除
+    public static function deleteAdm(int $admId){
+        //引数のadmIdに一致するレコードをadminテーブルから削除
+        $query = DB::delete(
+            "DELETE FROM admin WHERE adm_id = :id",
+            ['id'=>$admId]
+        );
+    }
+
 }

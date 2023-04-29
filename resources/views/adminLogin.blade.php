@@ -10,6 +10,20 @@
         text-align: center;
     }
     </style>
+	<script type="text/javascript">
+	//check関数を定義
+	function check() {
+		if (document.login.admName.value == "") {
+			window.alert("管理者氏名が未入力です");
+			return false;
+		} else if (document.login.password.value == "") {
+			window.alert("パスワードが未入力です");
+			return false;
+		} else {
+			return (window.confirm('ログインしてもよろしいですか？'))
+		}
+	}
+</script>
 </head>
 
 <body>
@@ -19,8 +33,9 @@
 <div>
 		<h1>管理者ログイン</h1>
 
-		<form id="login" name="login" action="AdminLoginSvl" method="post"
+		<form id="login" name="login" action="AdminLoginCtr" method="post"
 			onsubmit="return check();">
+			@csrf
 			<table border="1" width="500" cellspacing="4" cellpadding="4" style="width:50%;">
 				<tr>
 					<th>管理者氏名</th>

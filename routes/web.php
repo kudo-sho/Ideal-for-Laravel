@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminLoginCtr;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,5 @@ Route::post('/contactCompletion', function () {
 Route::get('/adminLogin', function () {
     return view('adminLogin');
 });
+
+Route::post('/AdminLoginCtr', [AdminLoginCtr::class,'index']);
