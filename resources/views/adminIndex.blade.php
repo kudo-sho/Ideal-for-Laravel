@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>お問い合わせフォーム</title>
+    <title>管理者処理選択画面</title>
     <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
     <style type="text/css">
     h1{font-size:60px;}
@@ -11,6 +11,7 @@
     </style>
 </head>
 
+<body>
 <hr />
 		<table width="100%" >
 		<td width="33%"></td>
@@ -18,7 +19,7 @@
 		<l>
 			<a href = "AdminReserveListSvl"><li>予約状況確認</li></a><br/>
 			<a href = "MenuMaintenanceSvl"><li>メニューメンテナンス</li></a><br />
-			<a href = "AdminMaintenanceSvl"><li>管理者情報メンテナンス</li></a><br />
+			<a href = "AdminMaintenanceCtr"><li>管理者情報メンテナンス</li></a><br />
 			<a href = "home"><li>管理者ログインしたままhomeに戻る</li></a><br />
 			<a href = "AdminLogoffSvl"><li>ログアウト</li></a><br />
 

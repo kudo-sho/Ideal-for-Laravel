@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminLoginCtr;
+use App\Http\Controllers\AdminMaintenanceCtr;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,17 @@ Route::post('/contactCompletion', function () {
 Route::get('/adminLogin', function () {
     return view('adminLogin');
 });
-
+Route::get('/adminIndex', function () {
+    return view('adminIndex');
+});
 Route::post('/AdminLoginCtr', [AdminLoginCtr::class,'index']);
+
+Route::get('/AdminMaintenanceCtr', [AdminMaintenanceCtr::class,'index']);
+
+Route::get('/adminMaintenance', function () {
+    return view('adminMaintenance');
+});
+
+Route::post('/adminInsert', function () {
+    return view('adminInsert');
+});

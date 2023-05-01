@@ -17,7 +17,7 @@ class AdminLoginCtr extends Controller
             return view('adminIndex');
         }else{
             printf("ログイン失敗しました。");
-            return view("adminLogin");
+            return view('adminLogin');
         }
 
     }

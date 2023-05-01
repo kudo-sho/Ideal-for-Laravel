@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>お問い合わせフォーム</title>
+    <title>管理者ログイン</title>
     <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
     <style type="text/css">
     div {
