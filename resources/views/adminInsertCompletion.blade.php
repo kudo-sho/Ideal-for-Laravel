@@ -22,8 +22,6 @@
     <%
 	Admin adm = (Admin)request.getAttribute("insertAdmInfo");
 
-
-%>
     <h1> 管理者登録が完了いたしました。</h1>
 
     <h3>
