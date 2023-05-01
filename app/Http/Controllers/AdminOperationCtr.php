@@ -31,7 +31,7 @@ class AdminOperationCtr extends Controller
 
                 //insertメソッドからの戻り値をviewに渡して表示
                 $adm = $adm->insert($adm);
-                return view('adminInsertCompletion',$adm);
+                return view('adminInsertCompletion',compact('adm'));
             
             case "変更処理":
                 //パラメータをセットしてupdateメソッドに渡す
@@ -48,7 +48,7 @@ class AdminOperationCtr extends Controller
                 return view('adminMaintenance',compact($msg));
 
             case "削除処理":
-                
+
 
 
 

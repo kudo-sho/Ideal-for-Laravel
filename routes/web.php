@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminLoginCtr;
 use App\Http\Controllers\AdminMaintenanceCtr;
+use App\Http\Controllers\AdminOperationCtr;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,3 +49,5 @@ Route::get('/adminMaintenance', function () {
 Route::post('/adminInsert', function () {
     return view('adminInsert');
 });
+
+Route::post('/AdminOperationCtr', [AdminOperationCtr::class,'index']);

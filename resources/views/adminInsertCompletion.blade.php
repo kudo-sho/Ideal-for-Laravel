@@ -17,11 +17,6 @@
 </head>
 
 <body align="center">
-    <?php
-    ?>
-    <%
-	Admin adm = (Admin)request.getAttribute("insertAdmInfo");
-
     <h1> 管理者登録が完了いたしました。</h1>
 
     <h3>
@@ -37,14 +32,14 @@
                 <td>詳細</td>
             </tr>
             <tr>
-                <td><%= adm.getAdmId() %></td>
-                <td><%= adm.getAdmName() %></td>
-                <td><%= adm.getPassword() %></td>
-                <td><%= adm.getExp() %></td>
+                <td>{{$adm->admId}}</td>
+                <td>{{$adm->admName}}</td>
+                <td>{{$adm->password}}</td>
+                <td>{{$adm->exp]}</td>
             </tr>
         </table>
         <br /><br />
-        現在は <%= session.getAttribute("adminInfo") %> 様でログインされています
+        <!--現在は <%= session.getAttribute("adminInfo") %> 様でログインされています -->
         <br />
 
 
@@ -54,7 +49,7 @@
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
     <div align="center">
-        <a href="adminMaintenance.jsp">
+        <a href="adminMaintenanceCtr">
             <u>戻る</u>
         </a>
     </div>
