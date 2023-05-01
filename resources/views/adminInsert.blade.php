@@ -41,7 +41,7 @@
         <h4 align="right">現在ログインしている管理者は　[埋め込みコード]　様です</h4>
         <hr>
         <hr />
-        <form id="admInsert" name="admInsert" action="AdminOperationSvl" method="post" onsubmit="return check();">
+        <form id="admInsert" name="admInsert" action="AdminOperationCtr" method="post" onsubmit="return check();">
             @csrf
             <table border="1">
                 <tr>

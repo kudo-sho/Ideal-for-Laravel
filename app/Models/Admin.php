@@ -81,7 +81,7 @@ class Admin extends Model
     }
 
     //管理者新規登録
-    public static function insert(Admin $adm){
+    public function insert(Admin $adm){
         //管理者情報をadminsテーブルにinsert
         $query = DB::insert(
             "INSERT INTO admins(adm_name,password,exp)
