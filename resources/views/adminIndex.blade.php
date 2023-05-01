@@ -12,7 +12,7 @@
 </head>
 
 <hr />
-		<table width="100%">
+		<table width="100%" >
 		<td width="33%"></td>
 		<td width= "33%">
 		<l>
