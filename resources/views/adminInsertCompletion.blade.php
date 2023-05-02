@@ -20,7 +20,7 @@
     <h1> 管理者登録が完了いたしました。</h1>
 
     <h3>
-        <% request.setCharacterEncoding("utf-8"); %>
+
 
         <br />
         新たに登録された管理者情報は以下の通りです
@@ -32,10 +32,10 @@
                 <td>詳細</td>
             </tr>
             <tr>
-                <td>{{$adm->admId}}</td>
-                <td>{{$adm->admName}}</td>
-                <td>{{$adm->password}}</td>
-                <td>{{$adm->exp]}</td>
+                <td>{{$adm->getAdmId()}}</td>
+                <td>{{$adm->getAdmName()}}</td>
+                <td>{{$adm->getPassword()}}</td>
+                <td>{{$adm->getExp()}}</td>
             </tr>
         </table>
         <br /><br />
@@ -49,7 +49,7 @@
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
     <div align="center">
-        <a href="adminMaintenanceCtr">
+        <a href="AdminMaintenanceCtr">
             <u>戻る</u>
         </a>
     </div>
