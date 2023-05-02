@@ -20,7 +20,7 @@
 
     <div>
         <h1>処理選択</h1>
-        <h4 align="right">現在ログインしている管理者は　[埋め込みコード]　様です</h4>
+        <h4 align="right">現在ログインしている管理者は　{{session()->get("adminInfo")}}　様です</h4>
         <hr />
 
 
@@ -40,13 +40,13 @@
                 <td>{{$al->adm_name}}</td>
                 <td>{{$al->exp}}</td>
                 <td>
-                    <form id="admUpdate" name="admUpdate" action="AdminUpdateSvl" method="post">
+                    <form id="admUpdate" name="admUpdate" action="AdminUpdateCtr" method="post">
                         <input type="submit" value="変更" />
                         <input type="hidden" name="admId" value="{{$al->adm_id }}" />
                     </form>
                 </td>
                 <td>
-                    <form id="admDelete" name="admDelete" action="AdminDeleteSvl" method="post">
+                    <form id="admDelete" name="admDelete" action="AdminDeleteCtr" method="post">
                         <input type="submit" value="削除" />
                         <input type="hidden" name="admId" value="{{$al->adm_id }}" />
                     </form>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminLoginCtr;
+use App\Http\Controllers\AdminLogoffCtr;
 use App\Http\Controllers\AdminMaintenanceCtr;
 use App\Http\Controllers\AdminOperationCtr;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,5 @@ Route::post('/adminInsert', function () {
 });
 
 Route::post('/AdminOperationCtr', [AdminOperationCtr::class,'index']);
+
+Route::get('/AdminLogoffCtr', [AdminLogoffCtr::class,'index']);

@@ -13,7 +13,8 @@ class AdminOperationCtr extends Controller
         $mode = $request['mode'];
 
         //セッション情報を取得する
-
+        $request->session()->get("adminInfo");
+        
         //各処理の為に入力されたパラメータを受け取る
         $adm_name = $request['admName'];
         $password = $request['password'];

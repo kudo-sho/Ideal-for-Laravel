@@ -13,7 +13,8 @@ class AdminLoginCtr extends Controller
 
         if($adm != null){
             printf("ログインしました");
-            //セッション確立処理を記述すること
+            
+            $request->session()->put("adminInfo",$adm->getAdmName());
             return view('adminIndex');
         }else{
             printf("ログイン失敗しました。");
