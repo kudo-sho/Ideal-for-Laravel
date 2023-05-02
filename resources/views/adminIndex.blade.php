@@ -8,6 +8,7 @@
     <style type="text/css">
     h1{font-size:60px;}
     div {text-align: center;}
+    td{border: 0ch;}
     </style>
 </head>
 
@@ -17,8 +18,8 @@
 		<h4 align="right">お疲れ様です。{{session()->get("adminInfo")}}　様</h4>
 		<hr />
 
-		<table width="100%" >
-		<td width="33%"></td>
+		<table width="100%">
+		<td width="40%" ></td>
 		<td width= "33%">
 		<l>
 			<a href = "AdminReserveListSvl"><li>予約状況確認</li></a><br/>
@@ -29,7 +30,7 @@
 
 		</l>
 		</td>
-		<td width= "33%"></td>
+		<td width= "27%"></td>
 
 		</table>
 </div>
