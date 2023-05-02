@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminMaintenanceCtr;
 use App\Http\Controllers\AdminOperationCtr;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +35,14 @@ Route::post('/contactCompletion', function () {
 });
 
 Route::get('/adminLogin', function () {
-    return view('adminLogin');
+    if(session()->get("adminInfo") == null){
+        return view('adminLogin');
+    }else{
+        return view('adminIndex');
+    }
+    
 });
+
 Route::get('/adminIndex', function () {
     return view('adminIndex');
 });

@@ -13,6 +13,11 @@
     <a href="home">
     <div class="toplink">IDEALLE</div>
     </a>
+
+    @if(session()->get("adminInfo") != null)
+        <p align="right">ログイン中の管理者：{{session()->get("adminInfo")}}</p>
+    @endif
+    
     <div>
         <h1 class="title">■ Restaurante IDEALLE ■</h1>
         <div class="site-logo">
