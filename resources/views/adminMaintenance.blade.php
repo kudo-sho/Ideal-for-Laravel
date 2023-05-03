@@ -17,25 +17,13 @@
     #selection{text-align: center;}
     </style>
     <script type="text/javascript">
-    function admDelete() {
-        confirm("ID:n管理者名:n詳細");
-        // if (document.admInsert.admName.value == "") {
-        //     window.alert("名前が未入力です。");
-        //     return false;
-        // }
-
-        // if (document.admInsert.password.value == "") {
-        //     window.alert("パスワードが未入力です。");
-        //     return false;
-        // }
-
-        // if (!(document.admInsert.password.value ==
-        //         document.admInsert.confPass.value)) {
-        //     window.alert("パスワードが一致しません。正しいパスワードを入力してください");
-        //     return false;
-        // }
-
-    }
+        //削除ボタン押した時の確認画面
+        function deleteBtn(obj) {
+            var id = obj[2].value;
+            var name = document.getElementById("name_"+id).textContent;
+            var exp = document.getElementById("exp_"+id).textContent;
+            return confirm("以下の管理者を削除しますか？\nID　　　："+id+"\n管理者名："+name+"\n詳細　　："+exp);
+        }
     </script>
 </head>
 
@@ -43,6 +31,7 @@
 
     <div>
         <h1>処理選択</h1>
+        {{$request['msg']}}
         <h4 align="right">現在ログインしている管理者は　{{session()->get("adminInfo")}}　様です</h4>
         <hr />
 
@@ -71,10 +60,11 @@
                     </form>
                 </td>
                 <td id="button">
-                    <form id="admDelete" name="admDelete" action="AdminDeleteCtr" method="post" onsubmit="return admDelete();">
+                    <form id="admDelete" name="admDelete" action="AdminOperation" method="post" onsubmit="return deleteBtn(this)">
                         @csrf
                         <input type="submit" value="削除" />
                         <input type="hidden" name="admId" value="{{$al->adm_id }}" />
+                        <input type="hidden" name="mode" value="削除処理" />
                     </form>
                 </td>
             </tr>

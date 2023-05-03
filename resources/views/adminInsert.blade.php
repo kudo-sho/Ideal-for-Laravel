@@ -41,7 +41,7 @@
         <h4 align="right">現在ログインしている管理者は　{{session()->get("adminInfo")}}　様です</h4>
         <hr>
         <hr />
-        <form id="admInsert" name="admInsert" action="AdminOperationCtr" method="post" onsubmit="return check();">
+        <form id="admInsert" name="admInsert" action="AdminMaintenanceCtr" method="post" onsubmit="return check();">
             @csrf
             <table border="1">
                 <tr>

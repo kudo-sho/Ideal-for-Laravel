@@ -49,7 +49,7 @@
     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
     <div align="center">
-        <a href="AdminMaintenanceCtr">
+        <a href="adminMaintenance">
             <u>戻る</u>
         </a>
     </div>

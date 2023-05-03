@@ -24,7 +24,7 @@
 		<l>
 			<a href = "AdminReserveListSvl"><li>予約状況確認</li></a><br/>
 			<a href = "MenuMaintenanceSvl"><li>メニューメンテナンス</li></a><br />
-			<a href = "AdminMaintenanceCtr"><li>管理者情報メンテナンス</li></a><br />
+			<a href = "adminMaintenance"><li>管理者情報メンテナンス</li></a><br />
 			<a href = "home"><li>管理者ログインしたままhomeに戻る</li></a><br />
 			<a href = "AdminLogoffCtr"><li>ログアウト</li></a><br />
 

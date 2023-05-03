@@ -51,20 +51,14 @@ Route::get('/adminIndex', function () {
 });
 Route::post('/AdminLoginCtr', [AdminLoginCtr::class,'index']);
 
-Route::get('/AdminMaintenanceCtr', [AdminMaintenanceCtr::class,'index']);
+Route::get('/adminMaintenance', [AdminMaintenanceCtr::class,'showAdminList']);
 
-Route::get('/adminMaintenance', function () {
-    return view('adminMaintenance');
-});
+Route::post('/AdminMaintenanceCtr', [AdminMaintenanceCtr::class,'operation']); //必要なくなったら削除
 
 Route::post('/adminInsert', function () {
     return view('adminInsert');
 });
 
-Route::post('/AdminOperationCtr', [AdminOperationCtr::class,'index']);
+Route::post('/AdminOperation', [AdminMaintenanceCtr::class,'operation']);
 
 Route::get('/AdminLogoffCtr', [AdminLogoffCtr::class,'index']);
-
-Route::post('/AdminDeleteCtr', [AdminDeleteCtr::class,'index']);
-
-Route::post('/AdminUpdateCtr', [AdminUpdateCtr::class,'index']);

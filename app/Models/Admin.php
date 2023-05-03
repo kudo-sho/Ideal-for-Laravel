@@ -124,7 +124,7 @@ class Admin extends Model
     public static function deleteAdm(int $admId){
         //引数のadmIdに一致するレコードをadminテーブルから削除
         $query = DB::delete(
-            "DELETE FROM admin WHERE adm_id = :id",
+            "DELETE FROM admins WHERE adm_id = :id",
             ['id'=>$admId]
         );
     }
