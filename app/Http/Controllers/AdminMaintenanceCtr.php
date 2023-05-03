@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Psy\Readline\Hoa\Console;
 
 class AdminMaintenanceCtr extends Controller
 {
@@ -43,31 +44,23 @@ class AdminMaintenanceCtr extends Controller
             case "変更処理":
                 //パラメータをセットしてupdateメソッドに渡す
                 $adm = new Admin();
-                $adm_id = $request['admId'];
-                $adm->setAdmId($adm_id);
-                $adm->setAdmName($adm_name);
-                $adm->setPassword($password);
-                $adm->setExp($exp); 
-
-                //updateメソッドからの戻り値をviewに渡して表示
+                $adm->setAdmId($request['admId']);
+                $adm->setAdmName($request['admName']);
+                $adm->setExp($request['admExp']); 
                 $adm = $adm->updateAdm($adm);
-                $msg = "管理者情報を変更しました";
-                return view('adminMaintenance',compact($msg));
+                
+                //完了メッセージを渡ながらadimnListを再表示
+                $request->merge(['msg' => "管理者情報を変更しました"]);
+                return $this->showAdminList($request);
 
             case "削除処理":
                 //パラメータをセットしてdeleteメソッドに渡す
                 $adm = new Admin();
                 $adm->deleteAdm($request['admId']);
 
+                //完了メッセージを渡ながらadimnListを再表示
                 $request->merge(['msg' => "管理者情報を削除しました。"]);
                 return $this->showAdminList($request);
-
-
-
-
-
-
-
         }
     }
 }

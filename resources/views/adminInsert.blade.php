@@ -68,7 +68,7 @@
             </table>
             <input type="hidden" name="mode" value="登録処理" />
         </form>
-        <br><br><br><a href="AdminMaintenanceCtr">戻る</a>
+        <br><br><br><a href="adminMaintenance">戻る</a>
         <br><br>
     </div>
 

@@ -24,6 +24,56 @@
             var exp = document.getElementById("exp_"+id).textContent;
             return confirm("以下の管理者を削除しますか？\nID　　　："+id+"\n管理者名："+name+"\n詳細　　："+exp);
         }
+        //変更ボタン押した時の動作
+        function updateBtn(obj){
+            var id = obj[2].value;
+            var elm = document.getElementById('record_id_'+id);
+            elm.children[1].innerHTML = "<input id=name_"+id+" type='text' value='"+elm.children[1].textContent+"' />";
+            elm.children[2].innerHTML = "<input id=exp_"+id+" type='text' value='"+elm.children[2].textContent+"' />";
+            elm.children[3].innerHTML = "<form id='admUpdate' name='admUpdate'  method='post' action='AdminOperation' onsubmit='return ok(this)'>"+
+                                        "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
+                                        "<input type='submit' value='決定' />"+
+                                        "<input type='hidden' name='admId' value='"+id+"' />"+
+                                        "<input id=update_name_"+id+" type='hidden' name='admName' value='' />"+
+                                        "<input id=update_exp_"+id+" type='hidden' name='admExp' value='' />"+
+                                        "<input type='hidden' name='mode' value='変更処理' />"+
+                                        "</form>";
+            elm.children[4].innerHTML = "<form id='admUpdate' name='admUpdate'  method='post' onsubmit='return cancel(this)'>"+
+                                        "<input type='submit' value='中止' />"+
+                                        "<input type='hidden' name='admId' value='"+id+"' />"+
+                                        "</form>";
+            return false;
+        }
+
+        //決定ボタン押した時の動作
+        function ok(obj){
+            var id = obj[2].value;
+            var name = document.getElementById("name_"+id).children[0].value;
+            var exp = document.getElementById("exp_"+id).children[0].value;
+            document.getElementById("update_name_"+id).value = name;
+            document.getElementById("update_exp_"+id).value = exp;
+            return confirm("管理者を以下の通りに変更しますか？\nID　　　："+id+"\n管理者名："+name+"\n詳細　　："+exp);
+        }
+
+        //中止ボタン押した時の動作
+        function cancel(obj) {
+            var id = obj[1].value;
+            var elm = document.getElementById('record_id_'+id);
+            elm.children[1].innerHTML = "<td id=name_"+id+">"+elm.children[1].children[0].value+"</td>";
+            elm.children[2].innerHTML = "<td id=exp_"+id+">"+elm.children[2].children[0].value+"</td>";
+            elm.children[3].innerHTML = "<form id='admUpdate' name='admUpdate'  method='post' onsubmit='return updateBtn(this)'>"+
+                                        "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
+                                        "<input type='submit' value='変更' />"+
+                                        "<input type='hidden' name='admId' value='"+id+"' />"+
+                                        "</form>";
+            elm.children[4].innerHTML = "<form id='admDelte' name='admDelete' action='AdminOperation' method='post' onsubmit='return deleteBtn(this)'>"+
+                                        "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
+                                        "<input type='submit' value='削除' />"+
+                                        "<input type='hidden' name='admId' value='"+id+"' />"+
+                                        "<input type='hidden' name='mode' value='削除処理' />"+
+                                        "</form>";
+            return false;
+        }
     </script>
 </head>
 
@@ -31,7 +81,7 @@
 
     <div>
         <h1>処理選択</h1>
-        {{$request['msg']}}
+        <h4>{{$request['msg']}}</h4>
         <h4 align="right">現在ログインしている管理者は　{{session()->get("adminInfo")}}　様です</h4>
         <hr />
 
@@ -47,13 +97,13 @@
             </tr>
 
             @foreach($adm_list as $al)
-            <tr>
+            <tr id="record_id_{{$al->adm_id }}">
                 <td id="id_{{$al->adm_id }}">{{$al->adm_id }}</td>
                 <td id="name_{{$al->adm_id }}">{{$al->adm_name}}</td>
                 <td id="exp_{{$al->adm_id }}">{{$al->exp}}</td>
 
                 <td id="button">
-                    <form id="admUpdate" name="admUpdate" action="AdminUpdateCtr" method="post">
+                    <form id="admUpdate" name="admUpdate"  method="post" onsubmit="return updateBtn(this)">
                         @csrf
                         <input type="submit" value="変更" />
                         <input type="hidden" name="admId" value="{{$al->adm_id }}" />

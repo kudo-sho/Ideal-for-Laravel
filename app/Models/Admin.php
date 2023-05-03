@@ -108,15 +108,14 @@ class Admin extends Model
         //管理者情報をadminsテーブルにupdate
         $query = DB::update(
             "UPDATE admins SET
-            adm_name = :name,password = :password,exp = :exp
+            adm_name = :name,exp = :exp
             WHERE adm_id = :id",[
                 'id'=>$adm->getAdmId(),
                 'name'=>$adm->getAdmName(),
-                'password'=>$adm->getPassword(),
                 'exp'=>$adm->getExp()
                 ]
         );
-        
+        //パスワードの更新は別のメソッドにて実装予定
         return $adm;
     }
 
