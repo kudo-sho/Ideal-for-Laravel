@@ -9,7 +9,7 @@ use App\Http\Controllers\AdminMaintenanceCtr;
 
 class AdminOperationCtr extends Controller
 {
-
+    //adminMaintenaceCtrに移行中。移行完了したらこのコントローラとルーティングを削除する予定
     public function index(Request $request){
         //リクエストパラメータ"mode"を受け取る
         $mode = $request['mode'];

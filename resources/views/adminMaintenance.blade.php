@@ -74,6 +74,29 @@
                                         "</form>";
             return false;
         }
+
+        //新規登録ボタン押した時の動作
+        function insert(){
+            var elm = document.getElementById('insert');
+            var insertTable = document.createElement('table');
+            var th = document.createElement('th');
+            th.textContent = "新規登録";
+            var tr1 = document.createElement('tr');
+            var tr1_name = document.createElement('td');
+            var tr1_pass = document.createElement('td');
+            var tr1_conf = document.createElement('td');
+            var tr1_exp = document.createElement('td');
+            tr1_name.textContent = "管理者名";
+            tr1_pass.textContent = "パスワード";
+            tr1_conf.textContent = "パスワード再入力";
+            tr1_exp.textContent = "詳細";
+            tr1.appendChild(tr1_name,tr1_pass,tr1_conf,tr1_exp);
+            var tr2 = document.createElement('tr');
+            insertTable.appendChild(th,tr1);
+            elm.appendChild(insertTable);
+            return false;
+
+        }
     </script>
 </head>
 
@@ -121,12 +144,13 @@
             @endforeach
         </table>
 
-        <form id="admInsert" name="admInsert" action="adminInsert" method="post">
-        @csrf
-            <input type="submit" value="新規登録" />
-        </form>
-
-        <br /><br /><br /><br /><br /><a href="adminIndex">処理メニューに戻る</a>
+        <div id=insert>
+            <form id="admInsert" name="admInsert" method="post" onsubmit="return insert()">
+            @csrf
+                <input type="submit" value="新規登録" />
+            </form>
+        </div>
+        <br /><br /><br /><a href="adminIndex">処理メニューに戻る</a><br /><br />
     </div>
 
 </body>
