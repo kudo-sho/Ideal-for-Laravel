@@ -78,24 +78,21 @@
         //新規登録ボタン押した時の動作
         function insert(){
             var elm = document.getElementById('insert');
-            var insertTable = document.createElement('table');
-            var th = document.createElement('th');
-            th.textContent = "新規登録";
-            var tr1 = document.createElement('tr');
-            var tr1_name = document.createElement('td');
-            var tr1_pass = document.createElement('td');
-            var tr1_conf = document.createElement('td');
-            var tr1_exp = document.createElement('td');
-            tr1_name.textContent = "管理者名";
-            tr1_pass.textContent = "パスワード";
-            tr1_conf.textContent = "パスワード再入力";
-            tr1_exp.textContent = "詳細";
-            tr1.appendChild(tr1_name,tr1_pass,tr1_conf,tr1_exp);
-            var tr2 = document.createElement('tr');
-            insertTable.appendChild(th,tr1);
-            elm.appendChild(insertTable);
-            return false;
-
+            elm.innerHTML = "<table>"+
+                            "<th colspan='6'>新規登録</th>"+
+                            "<tr><td>管理者名</td><td>パスワード</td><td>パスワード再入力</td><td>詳細</td><td colspan='2'>処理選択</td></tr>"+
+                            "<tr><td><input id='insertName' type='text'></td>"+
+                            "<td><input id='insertPass' type='password'></td>"+
+                            "<td><input id='insertConf' type='password'></td>"+
+                            "<td><input id='insertExp' type='text'></td>"+
+                            "<td><form id='hoge' name='hoge' method='post' onsubmit='return insertOk()'>"+
+                            "<input type='submit' value='決定' />"+
+                            "</form></td>"+
+                            "<td><form id='hoge' name='hoge' method='post' onsubmit='return insertCancel()'>"+
+                            "<input type='submit' value='中止'/>"+
+                            "</td></form>"+
+                            "</tr>"+
+                            "</table>";
         }
     </script>
 </head>
@@ -112,6 +109,7 @@
         <hr />
 
         <table border="1">
+            <tr><th colspan="5">登録管理者一覧</th></tr>
             <tr>
                 <td>ID</td>
                 <td>管理者名</td>
@@ -149,22 +147,6 @@
             @csrf
                 <input type="submit" value="新規登録" />
             </form>
-
-            <table>
-                <th colspan='6'>新規登録</th>
-                <tr><td>管理者名</td><td>パスワード</td><td>パスワード再入力</td><td>詳細</td><td colspan='2'>処理選択</td></tr>
-                <tr><td><input id='insertName' type='text'></td>
-                    <td><input id='insertPass' type='text'></td>
-                    <td><input id='insertConf' type='text'></td>
-                    <td><input id='insertExp' type='text'></td>
-                    <td><form id='hoge' name='hoge' method='post' onsubmit="return insertOk()">
-                        <input type='submit' value='決定' />
-                    </form></td>
-                    <td><form id='hoge' name='hoge' method='post' onsubmit="return insertCancel()">
-                        <input type='submit' value='中止'/>
-                    </td></form>
-                </tr>
-            </table>
         </div>
         <br /><br /><br /><a href="adminIndex">処理メニューに戻る</a><br /><br />
     </div>
