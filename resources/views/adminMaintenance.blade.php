@@ -149,6 +149,22 @@
             @csrf
                 <input type="submit" value="新規登録" />
             </form>
+
+            <table>
+                <th colspan='6'>新規登録</th>
+                <tr><td>管理者名</td><td>パスワード</td><td>パスワード再入力</td><td>詳細</td><td colspan='2'>処理選択</td></tr>
+                <tr><td><input id='insertName' type='text'></td>
+                    <td><input id='insertPass' type='text'></td>
+                    <td><input id='insertConf' type='text'></td>
+                    <td><input id='insertExp' type='text'></td>
+                    <td><form id='hoge' name='hoge' method='post' onsubmit="return insertOk()">
+                        <input type='submit' value='決定' />
+                    </form></td>
+                    <td><form id='hoge' name='hoge' method='post' onsubmit="return insertCancel()">
+                        <input type='submit' value='中止'/>
+                    </td></form>
+                </tr>
+            </table>
         </div>
         <br /><br /><br /><a href="adminIndex">処理メニューに戻る</a><br /><br />
     </div>
