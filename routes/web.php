@@ -53,12 +53,6 @@ Route::post('/AdminLoginCtr', [AdminLoginCtr::class,'index']);
 
 Route::get('/adminMaintenance', [AdminMaintenanceCtr::class,'showAdminList']);
 
-Route::post('/AdminMaintenanceCtr', [AdminMaintenanceCtr::class,'operation']); //必要なくなったら削除
-
-Route::post('/adminInsert', function () {
-    return view('adminInsert');
-});
-
 Route::post('/AdminOperation', [AdminMaintenanceCtr::class,'operation']);
 
 Route::get('/AdminLogoffCtr', [AdminLogoffCtr::class,'index']);

@@ -45,7 +45,7 @@
             return false;
         }
 
-        //決定ボタン押した時の動作
+        //変更の決定ボタン押した時の動作
         function updateOk(obj){
             var id = obj[2].value;
             var name = document.getElementById("name_"+id).children[0].value;
@@ -55,7 +55,7 @@
             return confirm("管理者を以下の通りに変更しますか？\nID　　　："+id+"\n管理者名："+name+"\n詳細　　："+exp);
         }
 
-        //中止ボタン押した時の動作
+        //変更の中止ボタン押した時の動作
         function updateCancel(obj) {
             var id = obj[1].value;
             var elm = document.getElementById('record_id_'+id);
@@ -81,10 +81,10 @@
             elm.innerHTML = "<table>"+
                             "<th colspan='6'>新規登録</th>"+
                             "<tr><td>管理者名</td><td>パスワード</td><td>パスワード再入力</td><td>詳細</td><td colspan='2'>処理選択</td></tr>"+
-                            "<tr><td><input id='insertName' type='text'></td>"+
-                            "<td><input id='insertPass' type='password'></td>"+
-                            "<td><input id='insertConf' type='password'></td>"+
-                            "<td><input id='insertExp' type='text'></td>"+
+                            "<tr><td><input id='insertName' type='text'>※必須</td>"+
+                            "<td><input id='insertPass' type='password'>※必須</td>"+
+                            "<td><input id='insertConf' type='password'>※必須</td>"+
+                            "<td><input id='insertExp' type='text'>※必須</td>"+
                             "<td><form id='hoge' name='hoge' method='post' action='AdminOperation' onsubmit='return insertOk()'>"+
                             "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
                             "<input type='submit' value='決定' />"+
@@ -100,24 +100,39 @@
                             "</tr>"+
                             "</table>";
         }
+
+        //新規登録の決定ボタン押した時の動作
         function insertOk(){
             var name = document.getElementById('insertName');
             var pass = document.getElementById('insertPass');
             var conf = document.getElementById('insertConf');
             var exp = document.getElementById('insertExp');
-
+            if(name.value == ""){
+                alert("管理者名が入力されていません");
+                return false;
+                }
+            if(pass.value == ""){
+                alert("パスワードが入力されていません");
+                return false;
+            }
+            if(exp.value == ""){
+                alert("詳細が入力されていません");
+                return false;
+            }
             var result =  confirm("以下の管理者を新規登録しますか？\n管理者名："+name.value+"\n詳細　　："+exp.value);
             if(result == true){
                 if(pass.value != conf.value){
-                alert("[パスワード]と[パスワード再確認]が一致しません。再度確認してください")
-                return false;
-            }
-            document.getElementById('insert_name').value = name.value;
-            document.getElementById('insert_pass').value = pass.value;
-            document.getElementById('insert_exp').value = exp.value;
-            return true;
+                    alert("[パスワード]と[パスワード再確認]が一致しません。再度確認してください");
+                    return false;
+                }
+                document.getElementById('insert_name').value = name.value;
+                document.getElementById('insert_pass').value = pass.value;
+                document.getElementById('insert_exp').value = exp.value;
+                return true;
             }
         }
+
+        //新規登録の中止ボタン押した時の動作
         function insertCancel(){
 
         }
