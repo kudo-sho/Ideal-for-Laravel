@@ -30,7 +30,7 @@
             var elm = document.getElementById('record_id_'+id);
             elm.children[1].innerHTML = "<input id=name_"+id+" type='text' value='"+elm.children[1].textContent+"' />";
             elm.children[2].innerHTML = "<input id=exp_"+id+" type='text' value='"+elm.children[2].textContent+"' />";
-            elm.children[3].innerHTML = "<form id='admUpdate' name='admUpdate'  method='post' action='AdminOperation' onsubmit='return ok(this)'>"+
+            elm.children[3].innerHTML = "<form id='admUpdate' name='admUpdate'  method='post' action='AdminOperation' onsubmit='return updateOk(this)'>"+
                                         "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
                                         "<input type='submit' value='決定' />"+
                                         "<input type='hidden' name='admId' value='"+id+"' />"+
@@ -38,7 +38,7 @@
                                         "<input id=update_exp_"+id+" type='hidden' name='admExp' value='' />"+
                                         "<input type='hidden' name='mode' value='変更処理' />"+
                                         "</form>";
-            elm.children[4].innerHTML = "<form id='admUpdate' name='admUpdate'  method='post' onsubmit='return cancel(this)'>"+
+            elm.children[4].innerHTML = "<form id='admUpdate' name='admUpdate'  method='post' onsubmit='return updateCancel(this)'>"+
                                         "<input type='submit' value='中止' />"+
                                         "<input type='hidden' name='admId' value='"+id+"' />"+
                                         "</form>";
@@ -46,7 +46,7 @@
         }
 
         //決定ボタン押した時の動作
-        function ok(obj){
+        function updateOk(obj){
             var id = obj[2].value;
             var name = document.getElementById("name_"+id).children[0].value;
             var exp = document.getElementById("exp_"+id).children[0].value;
@@ -56,7 +56,7 @@
         }
 
         //中止ボタン押した時の動作
-        function cancel(obj) {
+        function updateCancel(obj) {
             var id = obj[1].value;
             var elm = document.getElementById('record_id_'+id);
             elm.children[1].innerHTML = "<td id=name_"+id+">"+elm.children[1].children[0].value+"</td>";
@@ -85,14 +85,41 @@
                             "<td><input id='insertPass' type='password'></td>"+
                             "<td><input id='insertConf' type='password'></td>"+
                             "<td><input id='insertExp' type='text'></td>"+
-                            "<td><form id='hoge' name='hoge' method='post' onsubmit='return insertOk()'>"+
+                            "<td><form id='hoge' name='hoge' method='post' action='AdminOperation' onsubmit='return insertOk()'>"+
+                            "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
                             "<input type='submit' value='決定' />"+
+                            "<input id='insert_name' type='hidden' name='admName' value='' />"+
+                            "<input id='insert_pass' type='hidden' name='password' value='' />"+
+                            "<input id='insert_exp' type='hidden' name='exp' value='' />"+
+                            "<input type='hidden' name='mode' value='登録処理' />"+
                             "</form></td>"+
                             "<td><form id='hoge' name='hoge' method='post' onsubmit='return insertCancel()'>"+
+                            "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
                             "<input type='submit' value='中止'/>"+
                             "</td></form>"+
                             "</tr>"+
                             "</table>";
+        }
+        function insertOk(){
+            var name = document.getElementById('insertName');
+            var pass = document.getElementById('insertPass');
+            var conf = document.getElementById('insertConf');
+            var exp = document.getElementById('insertExp');
+
+            var result =  confirm("以下の管理者を新規登録しますか？\n管理者名："+name.value+"\n詳細　　："+exp.value);
+            if(result == true){
+                if(pass.value != conf.value){
+                alert("[パスワード]と[パスワード再確認]が一致しません。再度確認してください")
+                return false;
+            }
+            document.getElementById('insert_name').value = name.value;
+            document.getElementById('insert_pass').value = pass.value;
+            document.getElementById('insert_exp').value = exp.value;
+            return true;
+            }
+        }
+        function insertCancel(){
+
         }
     </script>
 </head>

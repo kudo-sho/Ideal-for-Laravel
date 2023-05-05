@@ -36,10 +36,11 @@ class AdminMaintenanceCtr extends Controller
                 $adm->setAdmName($adm_name);
                 $adm->setPassword($password);
                 $adm->setExp($exp);
-
-                //insertメソッドからの戻り値をviewに渡して表示
                 $adm = $adm->insert($adm);
-                return view('adminInsertCompletion',compact('adm'));
+                
+                //完了メッセージを渡ながらadimnListを再表示
+                $request->merge(['msg' => "管理者情報を登録しました"]);
+                return $this->showAdminList($request);
             
             case "変更処理":
                 //パラメータをセットしてupdateメソッドに渡す
