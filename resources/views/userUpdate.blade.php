@@ -37,7 +37,7 @@
     <div>
         <h1>お客様情報変更</h1>
 
-        <form id="update" name="update" action="userOperationCtr" method="post" onsubmit="return check();">
+        <form id="update" name="update" action="userOperation" method="post" onsubmit="return check();">
             @csrf
             <table border="1" width="500" cellspacing="4" cellpadding="4" style="width:50%;">
                 <tr>
