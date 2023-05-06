@@ -39,7 +39,7 @@ class AdminMaintenanceCtr extends Controller
                 $adm = $adm->insert($adm);
                 
                 //完了メッセージを渡ながらadimnListを再表示
-                $request->merge(['msg' => "管理者情報を登録しました"]);
+                $request->merge(['msg' => "管理者を新規登録しました"]);
                 return $this->showAdminList($request);
             
             case "変更処理":

@@ -134,7 +134,12 @@
 
         //新規登録の中止ボタン押した時の動作
         function insertCancel(){
-
+            var elm = document.getElementById('insert');
+            elm.innerHTML = "<form id='admInsert' name='admInsert' method='post' onsubmit='return insert()'>"+
+                            "<input type='hidden' name='_token' value='{{ csrf_token() }}'/>"+
+                            "<input type='submit' value='新規登録' />"+
+                            "</form>"+
+                            "";
         }
     </script>
 </head>
