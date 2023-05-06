@@ -42,7 +42,7 @@
             <table border="1" width="500" cellspacing="4" cellpadding="4" style="width:50%;">
                 <tr>
                     <th>お客様ID</th>
-                    <td colspan="2">{{session()->get('userInfo.id')}}</td>
+                    <td id="userId" colspan="2">{{session()->get('userInfo.id')}}</td>
                 </tr>
 
                 <tr>
@@ -58,6 +58,10 @@
                 </tr>
                 <tr>
                     <td colspan="4" class="cent"><input type="submit" value="送信" /></td>
+					<input type="hidden" name="mode" value="変更処理" />
+					<input type="hidden" name="userId" value="" />
+					<input type="hidden" name="userName" value="" />
+					<input type="hidden" name="email" value="" />
                 </tr>
             </table>
         </form>

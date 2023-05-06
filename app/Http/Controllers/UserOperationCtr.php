@@ -15,7 +15,7 @@ class UserOperationCtr extends Controller
         $request->session()->get("userInfo");
 
         //各処理の為に入力されたパラメータを受け取る
-        $name = $request['name'];
+        $name = $request['userName'];
         $password = $request['password'];
         $email = $request['email'];
 
@@ -37,19 +37,19 @@ class UserOperationCtr extends Controller
             case "変更処理":
                 //パラメータをセットしてupdateメソッドに渡す
                 $user = new User();
-                $user->setId($request['id']);
-                $user->setName($request['name']);
-                $user->setEmail($request['email']); 
+                $user->setId($request['userId']);
+                $user->setName($name);
+                $user->setEmail($email); 
                 $user = $user->updateUser($user);
                 
                 //完了メッセージを渡ながらadimnListを再表示
                 $request->merge(['msg' => "登録情報を変更しました"]);
-                //return $this->showUserList($request);
+                return view('userIndex',compact('request'));
 
             case "削除処理":
                 //パラメータをセットしてdeleteメソッドに渡す
                 $user = new User();
-                $user->deleteUser($request['admId']);
+                $user->deleteUser($request['userId']);
 
                 //完了メッセージを渡ながらadimnListを再表示
                 $request->merge(['msg' => "管理者情報を削除しました。"]);
