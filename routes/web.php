@@ -3,9 +3,7 @@
 use App\Http\Controllers\AdminLoginCtr;
 use App\Http\Controllers\AdminLogoffCtr;
 use App\Http\Controllers\AdminMaintenanceCtr;
-use App\Http\Controllers\AdminOperationCtr;
-use App\Http\Controllers\AdminUpdateCtr;
-use App\Http\Controllers\AdminDeleteCtr;
+use App\Http\Controllers\UserAccountCtr;
 use Illuminate\Support\Facades\Route;
 
 
@@ -37,6 +35,7 @@ Route::post('/contactCompletion', function () {
     return view('contactCompletion');
 });
 
+//admin関連
 Route::get('/adminLogin', function () {
     if(session()->get("adminInfo") == null){
         return view('adminLogin');
@@ -56,3 +55,22 @@ Route::get('/adminMaintenance', [AdminMaintenanceCtr::class,'showAdminList']);
 Route::post('/AdminOperation', [AdminMaintenanceCtr::class,'operation']);
 
 Route::get('/AdminLogoffCtr', [AdminLogoffCtr::class,'index']);
+
+
+//user関連
+Route::get('/userLogin', function () {
+    if(session()->get("userInfo") == null){
+        return view('userLogin');
+    }else{
+        return view('userIndex');
+    }
+    
+});
+
+Route::get('/userIndex', function () {
+    return view('userIndex');
+});
+
+Route::post('/userLoginCtr', [UserAccountCtr::class,'login']);
+
+Route::get('/userLogoffCtr', [UserAccountCtr::class,'logoff']);

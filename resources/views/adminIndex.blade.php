@@ -6,33 +6,50 @@
     <title>管理者処理選択画面</title>
     <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
     <style type="text/css">
-    h1{font-size:60px;}
-    div {text-align: center;}
-    td{border: 0ch;}
+    html {
+        height: 100%;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    td {
+        border: 0ch;
+    }
     </style>
 </head>
 
 <body>
-<div>
-		<h1>処理選択</h1>
-		<h4 align="right">お疲れ様です。{{session()->get("adminInfo")}}　様</h4>
-		<hr />
 
-		<table width="100%">
-		<td width="40%" ></td>
-		<td width= "33%">
-		<l>
-			<a href = "AdminReserveListSvl"><li>予約状況確認</li></a><br/>
-			<a href = "MenuMaintenanceSvl"><li>メニューメンテナンス</li></a><br />
-			<a href = "adminMaintenance"><li>管理者情報メンテナンス</li></a><br />
-			<a href = "home"><li>管理者ログインしたままhomeに戻る</li></a><br />
-			<a href = "AdminLogoffCtr"><li>ログアウト</li></a><br />
+    <h1>処理選択</h1>
+    <h4 align="right">お疲れ様です。{{session()->get("adminInfo")}}　様</h4>
+    <hr />
 
-		</l>
-		</td>
-		<td width= "27%"></td>
+    <table width="100%">
+        <td width="40%"></td>
+        <td width="33%">
+            <l>
+                <a href="AdminReserveListSvl">
+                    <li>予約状況確認</li>
+                </a><br />
+                <a href="MenuMaintenanceSvl">
+                    <li>メニューメンテナンス</li>
+                </a><br />
+                <a href="adminMaintenance">
+                    <li>管理者情報メンテナンス</li>
+                </a><br />
+                <a href="home">
+                    <li>管理者ログインしたままhomeに戻る</li>
+                </a><br />
+                <a href="AdminLogoffCtr">
+                    <li>ログアウト</li>
+                </a><br />
+            </l>
+        </td>
+        <td width="27%"></td>
+    </table>
 
-		</table>
-</div>
 </body>
+
 </html>
