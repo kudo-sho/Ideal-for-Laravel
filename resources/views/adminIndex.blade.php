@@ -6,8 +6,8 @@
     <title>管理者処理選択画面</title>
     <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
     <style type="text/css">
-    html {
-        height: 100%;
+    body {
+        height: 100vh;
     }
 
     h1 {

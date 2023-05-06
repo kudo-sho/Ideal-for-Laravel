@@ -12,8 +12,7 @@ class UserAccountCtr extends Controller
         $user = $user->login($request['usrId'],$request['password']);
 
         if($user != null){
-            printf("ログインしました");
-            
+            //ログイン成功時の処理
             $request->session()->put("userInfo",[
                 'id' => $user->getId(),
                 'name' => $user->getName(),
