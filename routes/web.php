@@ -71,6 +71,11 @@ Route::get('/userIndex', function () {
     return view('userIndex');
 });
 
+Route::get('/userUpdate', function () {
+    return view('userUpdate');
+});
 Route::post('/userLoginCtr', [UserAccountCtr::class,'login']);
+
+Route::post('/userOperation', [UserOperationCtr::class,'operation']);
 
 Route::get('/userLogoffCtr', [UserAccountCtr::class,'logoff']);
