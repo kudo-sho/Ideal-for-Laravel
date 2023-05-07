@@ -13,6 +13,13 @@
     <a href="home">
     <div class="toplink">IDEALLE</div>
     </a>
+    @if(!empty($request))
+    <h4>{{$request['msg']}}</h4>
+    @endif
+
+    @if(session()->get("userInfo") != null)
+        <p align="right">ログイン中のお客様：{{session()->get("userInfo.name")}}</p>
+    @endif
 
     @if(session()->get("adminInfo") != null)
         <p align="right">ログイン中の管理者：{{session()->get("adminInfo")}}</p>

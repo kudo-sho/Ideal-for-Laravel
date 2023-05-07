@@ -36,7 +36,9 @@
 </a>
 <div>
 		<h1>お客様ログイン</h1>
-
+		@if(!empty($request))
+		<h4>{{$request['msg']}}</h4>
+		@endif
 		<form id="login" name="login" action="userLoginCtr" method="post"
 			onsubmit="return check();">
 			@csrf

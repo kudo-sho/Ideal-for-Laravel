@@ -5,9 +5,10 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
-
+use PhpParser\Node\Stmt\TryCatch;
+use Request;
 
 class User extends Model
 {
@@ -84,24 +85,25 @@ class User extends Model
 
     //ユーザー新規登録処理
     public function insert(User $user){
-        //ユーザー情報をusersテーブルにinsert
-        $query = DB::insert(
-            "INSERT INTO users(name,password,email)
-            VALUES(:name,:password,:email)",[
-                'name'=>$user->getName(),
-                'password'=>$user->getPassword(),
-                'email'=>$user->getEmail()
-                ]
-        );
+            //ユーザー情報をusersテーブルにinsert
+            $query = DB::insert(
+                "INSERT INTO users(name,password,email)
+                VALUES(:name,:password,:email)",[
+                    'name'=>$user->getName(),
+                    'password'=>$user->getPassword(),
+                    'email'=>$user->getEmail()
+                    ]
+            );
 
-        //新規登録した顧客IDを取得する
-        $results = DB::select(
-            "SELECT last_insert_id() as userInfo"
-        );
+            //新規登録した顧客IDを取得する
+            $results = DB::select(
+                "SELECT last_insert_id() as userInfo"
+            );
 
-        //顧客IDをセットする
-        $user->setId($results[0]->userInfo);
-        return $user;
+            //顧客IDをセットする
+            $user->setId($results[0]->userInfo);
+            return $user;
+
     }
 
     //ユーザー情報変更
