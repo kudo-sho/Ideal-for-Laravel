@@ -13,17 +13,11 @@
     <script type="text/javascript">
     //check関数を定義
     function check() {
-        if (document.login.usrId.value == "") {
-            window.alert("お客様IDが未入力です");
-            return false;
-        } else if (!document.login.usrId.value.match(/^[0-9]+$/g)) {
-            alert("顧客様IDは半角数字を入力してください。");
-            return false;
-        } else if (document.login.password.value == "") {
-            window.alert("パスワードが未入力です");
+        if (document.update.userName.value == "") {
+            window.alert("お名前（氏名）が未入力です");
             return false;
         } else {
-            return (window.confirm('ログインしてもよろしいですか？'))
+            return (window.confirm('変更してもよろしいですか？'))
         }
     }
     </script>
@@ -42,26 +36,23 @@
             <table border="1" width="500" cellspacing="4" cellpadding="4" style="width:50%;">
                 <tr>
                     <th>お客様ID</th>
-                    <td id="userId" colspan="2">{{session()->get('userInfo.id')}}</td>
+                    <td id="userId" name="userId" colspan="2">{{session()->get('userInfo.id')}}</td>
                 </tr>
 
                 <tr>
                     <th>お名前（氏名）</th>
-                    <td colspan="4"><input type="text" name="userName" size="40"
+                    <td colspan="4"><input type="text" id="userName" name="userName" size="40"
                             value="{{session()->get('userInfo.name')}}" /></td>
                 </tr>
 
                 <tr>
                     <th>e-mailアドレス</th>
-                    <td colspan="4"><input type="text" name="mail" size="40"
+                    <td colspan="4"><input type="text" id="mail" name="mail" size="40"
                             value="{{session()->get('userInfo.email')}}" /></td>
                 </tr>
                 <tr>
                     <td colspan="4" class="cent"><input type="submit" value="送信" /></td>
 					<input type="hidden" name="mode" value="変更処理" />
-					<input type="hidden" name="userId" value="" />
-					<input type="hidden" name="userName" value="" />
-					<input type="hidden" name="email" value="" />
                 </tr>
             </table>
         </form>

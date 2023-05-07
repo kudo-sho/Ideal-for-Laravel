@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Psy\Readline\Hoa\Console;
 
 class UserOperationCtr extends Controller
 {
@@ -17,7 +18,7 @@ class UserOperationCtr extends Controller
         //各処理の為に入力されたパラメータを受け取る
         $name = $request['userName'];
         $password = $request['password'];
-        $email = $request['email'];
+        $email = $request['mail'];
 
         //modeにより処理を行う*************************************************
         switch($mode){
@@ -37,10 +38,17 @@ class UserOperationCtr extends Controller
             case "変更処理":
                 //パラメータをセットしてupdateメソッドに渡す
                 $user = new User();
-                $user->setId($request['userId']);
+                $user->setId($request->session()->get('userInfo.id'));
                 $user->setName($name);
                 $user->setEmail($email); 
                 $user = $user->updateUser($user);
+
+                //更新したユーザー情報でセッション情報を取り直す
+                $request->session()->put("userInfo",[
+                    'id' => $user->getId(),
+                    'name' => $user->getName(),
+                    'email' => $user->getEmail()
+                ]);
                 
                 //完了メッセージを渡ながらadimnListを再表示
                 $request->merge(['msg' => "登録情報を変更しました"]);

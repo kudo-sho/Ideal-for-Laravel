@@ -14,6 +14,9 @@
 </a>
 <center>
 <h1>■Restaurante IDEALLE■</h1>
+@if(!empty($request))
+<h4>{{$request['msg']}}</h4>
+@endif
 <br>
 <h2>会員番号　{{session()->get("userInfo.id")}}　番</h2>
 <h2>{{session()->get("userInfo.name")}} 様、いらっしゃいませ。</h2>
