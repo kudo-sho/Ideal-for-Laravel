@@ -46,7 +46,7 @@
     <br />
     <h5>※サイト管理者はページ下部の『管理者ログイン』よりログインしてください。</h5>
     <br/>
-            <a href="ShowMenuSvl"><div class="button">メニュー紹介</div></a><br/>
+            <a href="showMenu"><div class="button">メニュー紹介</div></a><br/>
             <a href="userLogin"><div class="button">すでに会員のかたはこちら</div></a><br/>
             <a href="userInsert"><div class="button">会員ではない方はこちら</div></a><br />
             <a href="contact"><div class="button">お問い合わせ</div></a><br />

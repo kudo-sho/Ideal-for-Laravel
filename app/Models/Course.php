@@ -109,7 +109,7 @@ class Course extends Model
     public function getCourseList(){
         $results = DB::select(
             "SELECT * FROM course
-            inner join coursectl useng(c_id)
+            inner join coursectl using(c_id)
             inner join menu using(m_id)"
         );
 
