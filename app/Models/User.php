@@ -56,13 +56,13 @@ class User extends Model
         //ユーザー情報問い合わせ
         $results = DB::select(
             "SELECT * FROM users
-            WHERE id = :id
+            WHERE usr_id = :id
             AND password = :pass",
             ['id'=>$id,'pass'=>$password]
         );
         if($results != null){
             //問い合わせた管理者情報をadminオブジェクトにセット
-            $user->setId($results[0]->id);
+            $user->setId($results[0]->usr_id);
             $user->setName($results[0]->name);
             $user->setPassword($results[0]->password);
             $user->setEmail($results[0]->email);
@@ -77,7 +77,7 @@ class User extends Model
         //管理者情報問い合わせ
         $results = DB::select(
             "SELECT * FROM users
-            WHERE id = :id",
+            WHERE usr_id = :id",
             ['id' => $userId]
         );
         return $results;
@@ -112,7 +112,7 @@ class User extends Model
         $query = DB::update(
             "UPDATE users SET
             name = :name,email = :email
-            WHERE id = :id",[
+            WHERE usr_id = :id",[
                 'id'=>$user->getId(),
                 'name'=>$user->getName(),
                 'email'=>$user->getEmail()
@@ -126,7 +126,7 @@ class User extends Model
     public static function deleteUser(int $userId){
         //引数のidに一致するレコードをusersテーブルから削除
         $query = DB::delete(
-            "DELETE FROM users WHERE id = :id",
+            "DELETE FROM users WHERE usr_id = :id",
             ['id'=>$userId]
         );
     }

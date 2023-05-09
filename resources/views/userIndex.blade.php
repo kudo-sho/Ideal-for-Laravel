@@ -21,7 +21,7 @@
 <h2>会員番号　{{session()->get("userInfo.id")}}　番</h2>
 <h2>{{session()->get("userInfo.name")}} 様、いらっしゃいませ。</h2>
 
-<a href="ShowMenuSvl"><div class="button">メニュー紹介</div></a><br/>
+<a href="showMenu"><div class="button">メニュー紹介</div></a><br/>
 <a href="ReserveListSvl"><div class="button">ご予約</div></a><br/>
 <a href="userUpdate"><div class="button">お客様情報変更</div></a><br/>
 <a href="userDelete"><div class="button">お客様退会手続き</div></a><br/>
