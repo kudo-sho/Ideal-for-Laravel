@@ -186,7 +186,7 @@ class Reserve extends Model
     //予約情報一覧取得処理
     public function getReserveList($userId){
         $results = DB::select(
-            "SELECT * FROM reserve INNER JOIN user USING(usr_id)
+            "SELECT * FROM reserve INNER JOIN users USING(usr_id)
             INNER JOIN table_loc USING(table_id) INNER JOIN course USING(c_id)
             WHERE usr_id = :userId  and rsv_date >= CURRENT_DATE()  ORDER BY rsv_date",
             ['userId' => $userId]

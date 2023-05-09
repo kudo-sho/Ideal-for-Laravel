@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminLoginCtr;
 use App\Http\Controllers\AdminLogoffCtr;
 use App\Http\Controllers\AdminMaintenanceCtr;
+use App\Http\Controllers\ReserveCtr;
 use App\Http\Controllers\ShowMenuCtr;
 use App\Http\Controllers\UserAccountCtr;
 use App\Http\Controllers\UserOperationCtr;
@@ -90,5 +91,12 @@ Route::post('/userOperation', [UserOperationCtr::class,'operation']);
 
 Route::get('/userLogoffCtr', [UserAccountCtr::class,'logoff']);
 
+Route::get('/reserve', [ReserveCtr::class,'reserveList']);
+
 //メニュー一覧関連
 Route::get('/showMenu', [ShowMenuCtr::class,'index']);
+
+//メンテナンス（作成中 or 改修中）
+Route::get('/sorry', function () {
+    return view('app_maintenance');
+});

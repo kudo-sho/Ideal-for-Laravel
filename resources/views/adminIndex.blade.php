@@ -30,10 +30,12 @@
         <td width="40%"></td>
         <td width="33%">
             <l>
-                <a href="AdminReserveListSvl">
+                {{-- AdminReserveList --}}
+                <a href="sorry">
                     <li>予約状況確認</li>
                 </a><br />
-                <a href="MenuMaintenanceSvl">
+                {{--  MenuMaintenance --}}
+                <a href="sorry">
                     <li>メニューメンテナンス</li>
                 </a><br />
                 <a href="adminMaintenance">

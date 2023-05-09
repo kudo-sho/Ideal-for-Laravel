@@ -22,7 +22,7 @@
 <h2>{{session()->get("userInfo.name")}} 様、いらっしゃいませ。</h2>
 
 <a href="showMenu"><div class="button">メニュー紹介</div></a><br/>
-<a href="reserve"><div class="button">ご予約</div></a><br/>
+<a href="sorry"><div class="button">ご予約</div></a><br/>
 <a href="userUpdate"><div class="button">お客様情報変更</div></a><br/>
 <a href="userDelete"><div class="button">お客様退会手続き</div></a><br/>
 <a href="contact"><div class="button">お問い合わせ</div></a><br />
