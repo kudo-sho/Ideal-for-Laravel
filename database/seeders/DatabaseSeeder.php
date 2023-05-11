@@ -19,7 +19,15 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(UsersTableSeeder::class);
-        $this->call(AdminsTableSeeder::class);
+        //$this->call(UsersTableSeeder::class);
+        //$this->call(AdminsTableSeeder::class);
+        
+        /*
+        php artisan migrate:fresh --seed
+        をコマンドラインで実行するとDBの初期化とseederの実行を同時に行える
+        */
+        
+        $this->call(IdealDefaultTableSetSeeder::class);
+        
     }
 }
