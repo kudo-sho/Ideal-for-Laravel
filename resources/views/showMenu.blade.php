@@ -66,7 +66,7 @@
                             <tr><td></td>
                                 <td>{{$m->m_Name}}</td>
 
-                            <?php $t_id = $m->t_id; ?>　{{-- コースIDを更新 --}}
+                            <?php $t_id = $m->t_id; ?>　{{-- タイプIDを更新 --}}
                         @else
                             <tr><td></td>
                                 <td>{{$m->m_Name}}</td>
