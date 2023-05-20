@@ -13,7 +13,7 @@ class IdealDefaultTableSetSeeder extends Seeder
      */
     public function run(): void
     {
-        $path = 'C:\xampp\htdocs\Ideal-for-Laravel\database\sql\DB_ideal_test.sql';
+        $path = '.\database\sql\DB_ideal_test.sql';
         DB::unprepared(file_get_contents($path));
     }
 }
