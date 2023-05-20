@@ -21,10 +21,11 @@
 --
 
 CREATE TABLE `admins` (
-  `adm_id` bigint(20) UNSIGNED NOT NULL,
+  `adm_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `adm_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `exp` varchar(255) NOT NULL
+  `exp` varchar(255),
+  PRIMARY KEY (`adm_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -327,7 +328,7 @@ DROP TABLE IF EXISTS `reserve`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reserve` (
   `rsv_id` int(11) NOT NULL AUTO_INCREMENT,
-  'usr_id' int(11) NOT NULL,
+  `usr_id` bigint(20) UNSIGNED NOT NULL,
   `rsv_date` datetime NOT NULL,
   `app_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `person` tinyint(4) NOT NULL,
@@ -336,7 +337,7 @@ CREATE TABLE `reserve` (
   `del_flg` tinyint(4) DEFAULT NULL,
   `del_date` datetime DEFAULT NULL,
   PRIMARY KEY (`rsv_id`),
-  KEY `cst_id` (`cst_id`),
+  KEY `usr_id` (`usr_id`),
   KEY `c_id` (`c_id`),
   KEY `table_id` (`table_id`),
   CONSTRAINT `reserve_ibfk_1` FOREIGN KEY (`usr_id`) REFERENCES `users` (`usr_id`),
@@ -385,14 +386,15 @@ UNLOCK TABLES;
 --
 
 CREATE TABLE `users` (
-  `usr_id` bigint(20) UNSIGNED NOT NULL,
+  `usr_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`usr_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
