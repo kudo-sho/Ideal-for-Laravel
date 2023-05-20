@@ -54,31 +54,6 @@ INSERT INTO `adr_book` VALUES (1,'田中誠',NULL,1,'600001','札幌市中央区
 /*!40000 ALTER TABLE `adr_book` ENABLE KEYS */;
 UNLOCK TABLES;
 
-
---
--- Table structure for table `category`
---
-
-DROP TABLE IF EXISTS `category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `category` (
-  `ctg_id` int(11) NOT NULL DEFAULT '0',
-  `ctg_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`ctg_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `category`
---
-
-LOCK TABLES `category` WRITE;
-/*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'食品'),(2,'生活用品'),(3,'文具'),(4,'電化製品'),(5,'ファッション'),(6,'スポーツ用品'),(7,'玩具'),(8,'その他');
-/*!40000 ALTER TABLE `category` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `course`
 --
