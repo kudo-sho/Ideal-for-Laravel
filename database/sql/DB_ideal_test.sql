@@ -15,6 +15,26 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+--
+-- テーブルの構造 `admins`
+--
+
+CREATE TABLE `admins` (
+  `adm_id` bigint(20) UNSIGNED NOT NULL,
+  `adm_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `exp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- テーブルのデータのダンプ `admins`
+--
+
+INSERT INTO `admins` (`adm_id`, `adm_name`, `password`, `exp`) VALUES
+(1, 'test', 'test', 'テスト用');
+
+
 --
 -- Table structure for table `adr_book`
 --
@@ -359,6 +379,31 @@ LOCK TABLES `table_loc` WRITE;
 INSERT INTO `table_loc` VALUES (1,'ローマ',4),(2,'フィレンツェ',4),(3,'ミラノ',4),(4,'ヴェニス',4),(5,'ナポリ',4),(6,'ロードス',6),(7,'シチリア',6);
 /*!40000 ALTER TABLE `table_loc` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- テーブルの構造 `users`
+--
+
+CREATE TABLE `users` (
+  `usr_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- テーブルのデータのダンプ `users`
+--
+
+INSERT INTO `users` (`usr_id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'test', 'test@test', NULL, 'test', NULL, NULL, NULL),
+(2, 'KUDO　SHO', 'kudo.bizz@gmail.com', NULL, 'a', NULL, NULL, NULL);
+
+
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
