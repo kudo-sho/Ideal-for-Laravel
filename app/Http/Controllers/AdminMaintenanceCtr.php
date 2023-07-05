@@ -28,11 +28,11 @@ class AdminMaintenanceCtr extends Controller
         $exp = $request['exp'];
 
         //modeにより処理を行う*************************************************
+        $adm = new Admin();
         switch($mode){
-
+            
             case "登録処理":
                 //パラメータをセットしてinsertメソッドに渡す
-                $adm = new Admin();
                 $adm->setAdmName($adm_name);
                 $adm->setPassword($password);
                 $adm->setExp($exp);
@@ -44,7 +44,6 @@ class AdminMaintenanceCtr extends Controller
             
             case "変更処理":
                 //パラメータをセットしてupdateメソッドに渡す
-                $adm = new Admin();
                 $adm->setAdmId($request['admId']);
                 $adm->setAdmName($request['admName']);
                 $adm->setExp($request['admExp']); 
@@ -56,7 +55,6 @@ class AdminMaintenanceCtr extends Controller
 
             case "削除処理":
                 //パラメータをセットしてdeleteメソッドに渡す
-                $adm = new Admin();
                 $adm->deleteAdm($request['admId']);
 
                 //完了メッセージを渡ながらadimnListを再表示
