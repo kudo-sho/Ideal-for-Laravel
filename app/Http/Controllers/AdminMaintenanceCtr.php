@@ -10,8 +10,7 @@ class AdminMaintenanceCtr extends Controller
 {
     public function showAdminList(Request $request){
         //adminリストを取得してリクエストにセットする
-        $a = new Admin();
-        $adm_list = $a->getAdminList();
+        $adm_list = (new Admin())->getAdminList();
         return view("adminMaintenance",compact('adm_list','request'));
     }
 
