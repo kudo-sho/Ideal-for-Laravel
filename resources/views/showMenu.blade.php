@@ -41,7 +41,7 @@
                             {{$c->detail}}
                         </span><br /><br />
                         ・{{$c->m_Name}}
-                        <td>¥{{number_format($c->c_price)}}<br/><br/></td>
+                        <td>¥{{number_format($c->price)}}<br/><br/></td>
                         <?php $c_id = $c->c_id; ?> {{-- コースIDを更新 --}}
                         @else
                         ・{{$c->m_Name}}
