@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>顧客情報変更画面</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
     <style type="text/css">
     div {
         text-align: center;

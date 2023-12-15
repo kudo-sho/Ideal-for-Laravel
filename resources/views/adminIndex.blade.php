@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <meta charset="UTF-8" />
-    <title>管理者処理選択画面</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
-    <style type="text/css">
-    body {
-        height: 100vh;
-    }
-
-    h1 {
-        font-size: 60px;
-    }
-
-    td {
-        border: 0ch;
-    }
-    </style>
-</head>
+@include('common.layout')
 
 <body>
 

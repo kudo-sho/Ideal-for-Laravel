@@ -10,13 +10,11 @@ class ShowMenuCtr extends Controller
 {
     public function index(Request $request){
         //コースのリストを取得
-        $course = new Course();
-        $course = $course->getCourseList();
+        $course = (new Course())->getCourseList();
         //$courseIndex = collect($course)->groupBy('c_name')->all();
 
         //メニューのリストを取得
-        $menu = new Menu();
-        $menu = $menu->getMenuList();
+        $menu = (new Menu())->getMenuList;
 
         return view('showMenu',compact('course','menu'));
         

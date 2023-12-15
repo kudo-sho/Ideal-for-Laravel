@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
     <meta charset='utf-8'>
     <style type="text/css">
     h1 {
