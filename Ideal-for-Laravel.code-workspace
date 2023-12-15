@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Ideal-for-Laravel",
+			"path": "."
+		},
+		{
+			"name": "ideal",
+			"path": "../ideal"
+		}
+	],
+	"settings": {}
+}
