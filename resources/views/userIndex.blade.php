@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>会員処理選択画面</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
 
 </head>
 

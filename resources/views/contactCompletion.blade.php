@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>お問い合わせ内容送信完了</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
     <style type="text/css">
     div {
         text-align: center;

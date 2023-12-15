@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>お問い合わせフォーム</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
     <style type="text/css">
     div {
         text-align: center;

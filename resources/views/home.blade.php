@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
-    <meta charset='utf-8'>
-    <style type="text/css">
-        h1{font-size:60px;}
-        div{text-align:center;}
-    </style>
-    <title>Restaurante IDEALLE</title>
-</head>
+@include('common.layout')
 <body>
     <a href="home">
     <div class="toplink">IDEALLE</div>
@@ -24,11 +14,19 @@
     @if(session()->get("adminInfo") != null)
         <p align="right">ログイン中の管理者：{{session()->get("adminInfo")}}</p>
     @endif
-    
+    {{-- bootstrapテスト　検証終わったら削除する --}}
+    <a href="https://laravel.com/docs"><button class='btn btn-default'>Docs</button></a>
+    <a href="https://laracasts.com"><button class='btn btn-primary'>Laracasts</button></a>
+    <a href="https://laravel-news.com"><button class='btn btn-success'>News</button></a>
+    <a href="https://blog.laravel.com"><button class='btn btn-info'>Blog</button></a>
+    <a href="https://nova.laravel.com"><button class='btn btn-warning'>Nova</button></a>
+    <a href="https://forge.laravel.com"><button class='btn btn-danger'>Forge</button></a>
+    <a href="https://vapor.laravel.com"><button class='btn btn-link'>Vapor</button></a>
+    <a href="https://github.com/laravel/laravel"><button class='btn btn-primary'>GitHub</button></a>
     <div>
         <h1 class="title">■ Restaurante IDEALLE ■</h1>
         <div class="site-logo">
-            <img src="{{asset('storage/02.jpg')}}">
+            <img src="{{asset('image/02.jpg')}}">
         </div>
     </div>
     Restaurante IDEALLE へようこそ！<br />

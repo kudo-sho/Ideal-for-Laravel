@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>新規会員登録</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('storage/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
     <script type="text/javascript">
 		function check(){
 
